@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'FAQ — Text to Speech Online Free | TextToSpeech.Online';
+const description = 'Frequently asked questions about our free online text to speech tool. Covers languages, privacy, pricing, and more.';
+
+const faqs = [
+  {
+    q: 'Is this tool really free?',
+    a: 'Yes. The core text-to-speech conversion using your browser\'s built-in Web Speech API is completely free, unlimited, and requires no sign-up. We offer a Premium plan for MP3 download and AI voices.',
+  },
+  {
+    q: 'What languages are supported?',
+    a: 'Supported languages depend on your browser and operating system. Typically you\'ll have access to English (US, UK, Australia, India), Spanish, French, German, Chinese (Mandarin), Japanese, Korean, Portuguese, Russian, Arabic, Italian, Dutch, Polish, Swedish, and many more.',
+  },
+  {
+    q: 'How does this work? Is my text sent to a server?',
+    a: 'No. Everything runs locally in your browser using the Web Speech API. Your text never leaves your device. This means it works offline too (after the first page load).',
+  },
+  {
+    q: 'Can I download the speech as an MP3 file?',
+    a: 'The free tier lets you listen in your browser. MP3 export with high-quality AI voices is a Premium feature. See the Premium section for details.',
+  },
+  {
+    q: 'Which browsers are supported?',
+    a: 'Web Speech API is supported in Chrome, Edge, Safari, and Firefox. For the best experience, we recommend Chrome or Edge which offer the widest range of voices.',
+  },
+  {
+    q: 'Is there a character limit?',
+    a: 'The free tool supports up to 5,000 characters per session. Premium users get extended limits and batch processing.',
+  },
+  {
+    q: 'Can I use this for commercial projects?',
+    a: 'Yes, the free tool can be used for any purpose. If you need MP3 exports for commercial use, check our Premium plan for proper audio file delivery.',
+  },
+  {
+    q: 'What makes this different from Google Translate\'s TTS?',
+    a: 'Our tool offers adjustable speed and pitch, a wider voice selection, a dedicated interface designed for text-to-speech, and Premium options for audio export.',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-bold text-slate-900">Frequently Asked Questions</h1>
+    <p class="mt-2 text-slate-600">Everything you need to know about our free text-to-speech tool.</p>
+
+    <div class="mt-8 space-y-4">
+      {faqs.map((item) => (
+        <details class="rounded-xl border border-slate-200 p-4 open:shadow-sm">
+          <summary class="cursor-pointer font-medium text-slate-800">{item.q}</summary>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>

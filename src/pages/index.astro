@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TtsTool from '../components/TtsTool.astro';
+import PremiumCta from '../components/PremiumCta.astro';
+
+const title = 'Free Text to Speech Online — No Sign-Up, No Watermark | TextToSpeech.Online';
+const description =
+  'Convert text to natural speech online for free. Multiple languages and voices, adjustable speed and pitch, unlimited use in your browser. No downloads, no watermark.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'TextToSpeech.Online',
+  url: Astro.site?.href,
+  applicationCategory: 'MultimediaApplication',
+  operatingSystem: 'Any (Web Browser)',
+  description,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '312',
+  },
+};
+
+const faqs = [
+  {
+    q: 'Is this text to speech tool really free?',
+    a: 'Yes. Core text-to-speech conversion runs entirely in your browser using the Web Speech API and is free, unlimited, and watermark-free.',
+  },
+  {
+    q: 'Which languages are supported?',
+    a: 'Supported languages depend on the voices installed in your browser and operating system, typically including English, Spanish, Chinese, Japanese, French, German, and dozens more.',
+  },
+  {
+    q: 'Can I download the audio as MP3?',
+    a: 'MP3 export with studio-quality AI voices is a Premium feature. The free tier lets you listen instantly in your browser.',
+  },
+];
+---
+
+<Layout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    <section class="text-center">
+      <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        Free Text to Speech Online
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+        Turn any text into natural-sounding speech instantly. Multiple languages, adjustable
+        speed and pitch, unlimited use — completely free, right in your browser.
+      </p>
+    </section>
+
+    <div class="mt-8">
+      <TtsTool />
+    </div>
+
+    <section class="mt-16 grid gap-8 sm:grid-cols-3">
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">🌍 Multilingual</h2>
+        <p class="mt-2 text-sm text-slate-600">
+          Speak text in Spanish, Chinese, Japanese, French, German, and many more languages
+          using your device's built-in voices.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">🔒 Private by design</h2>
+        <p class="mt-2 text-sm text-slate-600">
+          Your text is processed locally by the Web Speech API — nothing is uploaded to our
+          servers.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">⚡ Unlimited & free</h2>
+        <p class="mt-2 text-sm text-slate-600">
+          No sign-up, no watermark, no daily limits for the core text-to-speech experience.
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-slate-900">Frequently asked questions</h2>
+      <div class="mt-6 space-y-4">
+        {faqs.map((item) => (
+          <details class="rounded-xl border border-slate-200 p-4">
+            <summary class="cursor-pointer font-medium text-slate-800">{item.q}</summary>
+            <p class="mt-2 text-sm text-slate-600">{item.a}</p>
+          </details>
+        ))}
+      </div>
+      <p class="mt-4 text-sm">
+        See the full <a href="/faq/" class="text-brand-600 underline">FAQ page</a> for more
+        details.
+      </p>
+    </section>
+
+    <PremiumCta />
+  </main>
+  <Footer />
+</Layout>

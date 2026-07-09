@@ -1,0 +1,180 @@
+---
+export interface Props {
+  defaultLang?: string;
+  placeholder?: string;
+}
+
+const {
+  defaultLang = 'en-US',
+  placeholder = 'Type or paste your text here, then press Speak...',
+} = Astro.props;
+---
+
+<section id="tts-tool" class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <div class="flex flex-col gap-4">
+    <textarea
+      id="tts-input"
+      rows="8"
+      maxlength="5000"
+      placeholder={placeholder}
+      class="w-full resize-y rounded-xl border border-slate-300 p-4 text-base focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+    ></textarea>
+
+    <div class="flex flex-wrap items-center gap-3">
+      <label class="flex flex-col gap-1 text-sm text-slate-600">
+        Language / Voice
+        <select
+          id="tts-voice"
+          data-default-lang={defaultLang}
+          class="min-w-[220px] rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none"
+        >
+          <option>Loading voices...</option>
+        </select>
+      </label>
+
+      <label class="flex flex-col gap-1 text-sm text-slate-600">
+        Speed: <span id="tts-rate-value">1x</span>
+        <input id="tts-rate" type="range" min="0.5" max="2" step="0.1" value="1" class="w-32" />
+      </label>
+
+      <label class="flex flex-col gap-1 text-sm text-slate-600">
+        Pitch: <span id="tts-pitch-value">1</span>
+        <input id="tts-pitch" type="range" min="0" max="2" step="0.1" value="1" class="w-32" />
+      </label>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <button
+        id="tts-speak"
+        type="button"
+        class="rounded-full bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700"
+      >
+        ▶ Speak
+      </button>
+      <button
+        id="tts-stop"
+        type="button"
+        class="rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-600 transition hover:bg-slate-100"
+      >
+        ■ Stop
+      </button>
+      <button
+        id="tts-download"
+        type="button"
+        class="rounded-full border border-brand-200 bg-brand-50 px-6 py-3 font-semibold text-brand-700 transition hover:bg-brand-100"
+        title="Premium feature"
+      >
+        ⬇ Download MP3 (Premium)
+      </button>
+    </div>
+
+    <p id="tts-status" class="text-sm text-slate-400" aria-live="polite"></p>
+
+    <p class="text-xs text-slate-400">
+      100% free, unlimited use, no watermark. Runs entirely in your browser via the Web Speech API —
+      your text is never uploaded to a server.
+    </p>
+  </div>
+</section>
+
+<script>
+  const input = document.getElementById('tts-input') as HTMLTextAreaElement;
+  const voiceSelect = document.getElementById('tts-voice') as HTMLSelectElement;
+  const rateInput = document.getElementById('tts-rate') as HTMLInputElement;
+  const rateValue = document.getElementById('tts-rate-value') as HTMLElement;
+  const pitchInput = document.getElementById('tts-pitch') as HTMLInputElement;
+  const pitchValue = document.getElementById('tts-pitch-value') as HTMLElement;
+  const speakBtn = document.getElementById('tts-speak') as HTMLButtonElement;
+  const stopBtn = document.getElementById('tts-stop') as HTMLButtonElement;
+  const downloadBtn = document.getElementById('tts-download') as HTMLButtonElement;
+  const status = document.getElementById('tts-status') as HTMLElement;
+
+  const defaultLang = voiceSelect?.dataset.defaultLang || 'en-US';
+  let voices: SpeechSynthesisVoice[] = [];
+
+  function populateVoices() {
+    if (!('speechSynthesis' in window)) {
+      status.textContent = 'Your browser does not support the Web Speech API. Try Chrome, Edge, or Safari.';
+      speakBtn.disabled = true;
+      return;
+    }
+    voices = window.speechSynthesis.getVoices();
+    if (!voices.length) return;
+
+    voiceSelect.innerHTML = '';
+    voices
+      .slice()
+      .sort((a, b) => a.lang.localeCompare(b.lang))
+      .forEach((voice, i) => {
+        const option = document.createElement('option');
+        option.value = String(i);
+        option.textContent = `${voice.name} (${voice.lang})`;
+        voiceSelect.appendChild(option);
+      });
+
+    const preferredIndex = voices.findIndex((v) => v.lang === defaultLang);
+    if (preferredIndex >= 0) {
+      voiceSelect.value = String(preferredIndex);
+    } else {
+      const looseMatch = voices.findIndex((v) => v.lang.startsWith(defaultLang.split('-')[0]));
+      if (looseMatch >= 0) voiceSelect.value = String(looseMatch);
+    }
+  }
+
+  populateVoices();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = populateVoices;
+  }
+
+  rateInput?.addEventListener('input', () => {
+    rateValue.textContent = `${rateInput.value}x`;
+  });
+
+  pitchInput?.addEventListener('input', () => {
+    pitchValue.textContent = pitchInput.value;
+  });
+
+  speakBtn?.addEventListener('click', () => {
+    const text = input.value.trim();
+    if (!text) {
+      status.textContent = 'Please enter some text first.';
+      return;
+    }
+    if (!('speechSynthesis' in window)) return;
+
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    const selectedVoice = voices[Number(voiceSelect.value)];
+    if (selectedVoice) {
+      utterance.voice = selectedVoice;
+      utterance.lang = selectedVoice.lang;
+    }
+    utterance.rate = Number(rateInput.value);
+    utterance.pitch = Number(pitchInput.value);
+
+    utterance.onstart = () => {
+      status.textContent = 'Speaking...';
+    };
+    utterance.onend = () => {
+      status.textContent = 'Done.';
+    };
+    utterance.onerror = () => {
+      status.textContent = 'Something went wrong while speaking.';
+    };
+
+    window.speechSynthesis.speak(utterance);
+  });
+
+  stopBtn?.addEventListener('click', () => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      status.textContent = 'Stopped.';
+    }
+  });
+
+  downloadBtn?.addEventListener('click', () => {
+    status.textContent = 'MP3 download is a Premium feature — upgrade to export studio-quality audio.';
+    window.location.hash = '#premium';
+  });
+</script>

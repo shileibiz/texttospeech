@@ -1,0 +1,40 @@
+---
+import LanguagePage from '../../components/LanguagePage.astro';
+
+const title = 'Japanese Text to Speech Online (日本語テキスト読み上げ) — Free TTS | TextToSpeech.Online';
+const description = 'Free Japanese text to speech converter. Type Japanese text and listen with natural voices — no sign-up, no watermark, unlimited use in your browser.';
+
+const bullets = [
+  'Supports Japanese (ja-JP) voices where available in your browser/OS.',
+  'Perfect for language learners practicing pronunciation with adjustable speed.',
+  'Great for content creators adding Japanese voiceovers to videos.',
+  'Runs 100% locally — your Japanese text never leaves your device.',
+];
+
+const faqs = [
+  {
+    q: '日本語のテキスト読み上げは無料ですか？',
+    a: 'はい、ブラウザのWeb Speech APIを使用した基本機能は完全無料で、使用制限はありません。',
+  },
+  {
+    q: 'Does this support Japanese kanji and kana?',
+    a: 'Yes, as long as your browser/OS has Japanese voices installed, it will read kanji, hiragana, and katakana text naturally.',
+  },
+  {
+    q: 'Can I use this to practice Japanese pronunciation?',
+    a: 'Yes — type or paste Japanese text, slow down the speed, and listen repeatedly to practice intonation and rhythm.',
+  },
+];
+---
+
+<LanguagePage
+  title={title}
+  description={description}
+  heading="Japanese Text to Speech (日本語テキスト読み上げ)"
+  intro="Convert Japanese text into natural-sounding speech instantly. Free, unlimited, and perfect for learners, creators, and accessibility."
+  langCode="ja-JP"
+  langLabel="Japanese"
+  slug="text-to-speech-japanese"
+  bullets={bullets}
+  faqs={faqs}
+/>

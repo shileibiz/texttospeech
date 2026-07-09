@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Text to Speech Online vs Google TTS vs Amazon Polly — Comparison | TextToSpeech.Online';
+const description = 'Compare free online text-to-speech tools: our browser-based TTS vs Google Cloud TTS vs Amazon Polly. See which one fits your needs best.';
+
+const comparisons = [
+  {
+    feature: 'Price',
+    us: 'Free (core), Premium available',
+    google: 'Pay per character (1M chars free/mo)',
+    polly: 'Pay per character (1M chars free/mo for 12mo)',
+  },
+  {
+    feature: 'Sign-up required',
+    us: 'No',
+    google: 'Yes (Google Cloud account)',
+    polly: 'Yes (AWS account)',
+  },
+  {
+    feature: 'MP3 download',
+    us: 'Premium',
+    google: 'Yes (via API)',
+    polly: 'Yes (via API)',
+  },
+  {
+    feature: 'AI voices',
+    us: 'Premium',
+    google: 'WaveNet (paid)',
+    polly: 'Neural (paid)',
+  },
+  {
+    feature: 'Browser voices',
+    us: 'Free unlimited',
+    google: 'N/A',
+    polly: 'N/A',
+  },
+  {
+    feature: 'Privacy (no server upload)',
+    us: 'Yes (runs locally)',
+    google: 'No (processed on cloud)',
+    polly: 'No (processed on cloud)',
+  },
+  {
+    feature: 'Offline use',
+    us: 'Yes',
+    google: 'No',
+    polly: 'No',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    <h1 class="text-3xl font-bold text-slate-900">Text to Speech Tools Compared</h1>
+    <p class="mt-2 text-slate-600">See how our free online TTS stacks up against the big players.</p>
+
+    <div class="mt-8 overflow-x-auto rounded-xl border border-slate-200">
+      <table class="w-full text-left text-sm">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="px-4 py-3 font-semibold text-slate-700">Feature</th>
+            <th class="px-4 py-3 font-semibold text-brand-700">TextToSpeech.Online</th>
+            <th class="px-4 py-3 font-semibold text-slate-700">Google Cloud TTS</th>
+            <th class="px-4 py-3 font-semibold text-slate-700">Amazon Polly</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          {comparisons.map((row) => (
+            <tr>
+              <td class="px-4 py-3 font-medium text-slate-800">{row.feature}</td>
+              <td class="px-4 py-3 text-brand-700">{row.us}</td>
+              <td class="px-4 py-3 text-slate-600">{row.google}</td>
+              <td class="px-4 py-3 text-slate-600">{row.polly}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-slate-900">Why choose our free TTS tool?</h2>
+      <ul class="mt-4 space-y-2 text-slate-600">
+        <li>✅ <strong>Zero setup</strong> — open the page and start speaking, no accounts needed</li>
+        <li>✅ <strong>Privacy-first</strong> — your text never touches a server</li>
+        <li>✅ <strong>Unlimited free use</strong> — no daily caps for browser-based speech</li>
+        <li>✅ <strong>Multi-language</strong> — dozens of voices from your browser</li>
+      </ul>
+    </section>
+  </main>
+  <Footer />
+</Layout>

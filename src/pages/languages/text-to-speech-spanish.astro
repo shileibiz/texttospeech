@@ -1,0 +1,41 @@
+---
+import LanguagePage from '../../components/LanguagePage.astro';
+
+const title = 'Spanish Text to Speech Online (Español) — Free TTS | TextToSpeech.Online';
+const description =
+  'Free Spanish text to speech converter. Type Spanish text and listen with natural voices — no sign-up, no watermark, unlimited use in your browser.';
+
+const bullets = [
+  'Supports Spain (es-ES), Mexico (es-MX), and other regional Spanish voices available in your browser.',
+  'Adjustable speed and pitch for language learners and content creators.',
+  'Great for pronunciation practice, video voiceovers, and accessibility.',
+  'Runs 100% locally — your Spanish text never leaves your device.',
+];
+
+const faqs = [
+  {
+    q: '¿Es gratis convertir texto a voz en español?',
+    a: 'Sí, la conversión básica de texto a voz es completamente gratuita e ilimitada.',
+  },
+  {
+    q: 'Which Spanish accents are supported?',
+    a: 'Available accents depend on your browser and OS voice packs, and typically include Spain, Mexico, and Latin American Spanish voices.',
+  },
+  {
+    q: 'Can I use this for learning Spanish pronunciation?',
+    a: 'Yes — slow down the speed slider to hear words more clearly, ideal for language learners.',
+  },
+];
+---
+
+<LanguagePage
+  title={title}
+  description={description}
+  heading="Spanish Text to Speech (Texto a Voz)"
+  intro="Convert Spanish text into natural-sounding speech instantly. Free, unlimited, and perfect for learners, creators, and accessibility."
+  langCode="es-ES"
+  langLabel="Spanish"
+  slug="text-to-speech-spanish"
+  bullets={bullets}
+  faqs={faqs}
+/>

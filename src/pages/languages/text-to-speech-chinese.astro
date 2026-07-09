@@ -1,0 +1,41 @@
+---
+import LanguagePage from '../../components/LanguagePage.astro';
+
+const title = 'Chinese Text to Speech Online (中文语音合成) — Free TTS | TextToSpeech.Online';
+const description =
+  'Free Chinese (Mandarin) text to speech converter. Type Chinese text and listen with natural voices — no sign-up, no watermark, unlimited use in your browser.';
+
+const bullets = [
+  'Supports Mandarin (zh-CN), Taiwan (zh-TW), and Cantonese voices where available in your browser.',
+  'Adjustable speed and pitch for language learners and content creators.',
+  'Useful for pronunciation practice, video voiceovers, and accessibility.',
+  'Runs 100% locally — your Chinese text never leaves your device.',
+];
+
+const faqs = [
+  {
+    q: '中文文字转语音是免费的吗？',
+    a: '是的，基础的文字转语音功能完全免费且无使用次数限制。',
+  },
+  {
+    q: 'Does this support both Simplified and Traditional Chinese?',
+    a: 'Yes, depending on the voices installed in your browser/OS, both Simplified (zh-CN) and Traditional (zh-TW/zh-HK) voices are typically available.',
+  },
+  {
+    q: 'Can I use this to practice Mandarin pronunciation?',
+    a: 'Yes — slow down the speed slider and replay words to help with tone and pronunciation practice.',
+  },
+];
+---
+
+<LanguagePage
+  title={title}
+  description={description}
+  heading="Chinese Text to Speech (中文文字转语音)"
+  intro="Convert Chinese text into natural-sounding speech instantly. Free, unlimited, and perfect for learners, creators, and accessibility."
+  langCode="zh-CN"
+  langLabel="Chinese"
+  slug="text-to-speech-chinese"
+  bullets={bullets}
+  faqs={faqs}
+/>
