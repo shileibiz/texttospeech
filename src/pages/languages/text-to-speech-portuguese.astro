@@ -1,0 +1,45 @@
+---
+import LanguagePage from '../../components/LanguagePage.astro';
+
+const title = 'Portuguese Text to Speech Online (Conversor de Texto em Voz) — Free TTS | TextToSpeech.Online';
+const description =
+  'Free Portuguese text to speech. Type or paste Portuguese text and hear it read aloud with natural voices. Works in your browser, no sign-up needed.';
+
+const bullets = [
+  'Supports Brazilian (pt-BR) and European Portuguese (pt-PT) voices — depends what your browser or OS has installed.',
+  'Speed and pitch sliders let you slow things down for comprehension or speed up for quick reviews.',
+  'Handy for language learners practicing pronunciation, creators doing voiceovers, or just having text read back to you.',
+  'Everything runs locally in your browser. Your text never hits a server.',
+];
+
+const faqs = [
+  {
+    q: 'Conversor de texto em voz é gratuito mesmo?',
+    a: 'Sim, a conversão básica de texto para voz é totalmente gratuita e sem limites de uso. Funciona direto no navegador.',
+  },
+  {
+    q: 'Funciona com português do Brasil e de Portugal?',
+    a: 'Sim, se o seu navegador ou sistema tiver vozes em português instaladas, você consegue usar tanto o sotaque brasileiro quanto o europeu. A disponibilidade varia de dispositivo para dispositivo.',
+  },
+  {
+    q: 'Dá para usar isso para praticar a pronúncia do português?',
+    a: 'Com certeza. Digite ou cole o texto, diminua a velocidade no slider e repita quantas vezes quiser. Ajuda bastante com a entonação e o ritmo da língua.',
+  },
+  {
+    q: 'Precisa criar conta ou instalar alguma coisa?',
+    a: 'Nada disso. Abriu o navegador, já funciona. Sem cadastro, sem download, sem surpresas.',
+  },
+];
+---
+
+<LanguagePage
+  title={title}
+  description={description}
+  heading="Portuguese Text to Speech (Conversor de Texto em Voz)"
+  intro="Type or paste Portuguese text and hear it spoken aloud. Free, unlimited — useful for language learners, content creators, and anyone who wants text read back."
+  langCode="pt-BR"
+  langLabel="Portuguese"
+  slug="text-to-speech-portuguese"
+  bullets={bullets}
+  faqs={faqs}
+/>

@@ -1,0 +1,45 @@
+---
+import LanguagePage from '../../components/LanguagePage.astro';
+
+const title = 'Indonesian Text to Speech Online (Pengubah Teks ke Suara) — Free TTS | TextToSpeech.Online';
+const description =
+  'Free Indonesian text to speech. Type Indonesian text and hear it spoken aloud with natural voices. Works in your browser, no sign-up, no watermark.';
+
+const bullets = [
+  'Supports Indonesian (id-ID) voices where your browser or OS has them available.',
+  'Adjust playback speed and pitch — useful for learners who want to rehearse pronunciation.',
+  'Great for content creators adding Indonesian voiceovers, or for accessibility tools.',
+  'Your text never leaves your device. Everything runs locally in the browser.',
+];
+
+const faqs = [
+  {
+    q: 'Apakah pengubah teks ke suara ini gratis?',
+    a: 'Ya, fitur dasar text-to-speech ini gratis sepenuhnya dan tidak ada batasan pemakaian. Langsung bisa dipakai di browser.',
+  },
+  {
+    q: 'Apakah bisa membaca teks bahasa Indonesia dengan logat yang alami?',
+    a: 'Tergantung voice pack yang ada di browser atau sistem operasi Anda. Sebagian besar perangkat modern sudah mendukung suara bahasa Indonesia yang cukup natural.',
+  },
+  {
+    q: 'Cocok buat belajar bahasa Indonesia?',
+    a: 'Banget. Ketik atau tempel teks, pelankan kecepatannya, dan dengarkan berulang-ulang. Cocok buat latihan pengucapan dan intonasi.',
+  },
+  {
+    q: 'Apakah perlu daftar akun dulu?',
+    a: 'Tidak perlu. Buka halaman ini, langsung pakai. Tanpa registrasi, tanpa instalasi.',
+  },
+];
+---
+
+<LanguagePage
+  title={title}
+  description={description}
+  heading="Indonesian Text to Speech (Pengubah Teks ke Suara)"
+  intro="Type or paste Indonesian text and hear it spoken aloud. Free, unlimited — useful for language learners, content creators, and accessibility."
+  langCode="id-ID"
+  langLabel="Indonesian"
+  slug="text-to-speech-indonesian"
+  bullets={bullets}
+  faqs={faqs}
+/>
