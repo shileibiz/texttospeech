@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Listen to Articles While Driving — Hands-Free TTS Online | TextToSpeech.Online';
+const description =
+  'Turn saved articles into audio for your commute. Paste the text, pick a voice, press play before you pull out, and keep your hands on the wheel.';
+
+const canonical = new URL('/while-driving/', Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Listen to Articles While Driving — Hands-Free TTS Online',
+  description,
+  url: canonical,
+  author: {
+    '@type': 'Organization',
+    name: 'TextToSpeech.Online',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'TextToSpeech.Online',
+  },
+};
+---
+
+<Layout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+      Listen While Driving — Set It Before You Go
+    </h1>
+    <p class="mt-4 text-lg text-slate-600">
+      That article you saved three days ago is still open in a tab. Your commute is twenty
+      minutes of dead time. Text to speech connects the two: paste the article before you
+      start the car, press play, and arrive having actually read the thing.
+    </p>
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold text-slate-900">The whole setup happens while parked</h2>
+      <ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-600">
+        <li>
+          <strong>Paste your text before you drive.</strong> Copy the article, newsletter, or
+          report on your phone and paste it into the tool while you're still parked. Long
+          reads work fine; there is no character cap on the free tier.
+        </li>
+        <li>
+          <strong>Pick the voice and speed now, not later.</strong> Test a few seconds of
+          playback and adjust the rate until it sounds comfortable. A slightly slower pace is
+          easier to follow when part of your attention is on the road.
+        </li>
+        <li>
+          <strong>Press play, then put the phone away.</strong> Pocket, cup holder, or mount,
+          whichever your car has. Audio keeps playing through your speakers or Bluetooth like
+          a podcast would. From here on the phone should not be in your hands.
+        </li>
+      </ol>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold text-slate-900">Why browser TTS suits the car</h2>
+      <p class="mt-3 text-slate-600">
+        The speech is generated on your phone, not streamed from a server. Once playback
+        starts, a dropped signal in a tunnel or a dead zone doesn't stop the audio. There is
+        also no app to install and no account to log into at a red light, because you set
+        everything up before the wheels moved.
+      </p>
+    </section>
+
+    <section class="mt-10 rounded-xl border border-amber-200 bg-amber-50 p-5">
+      <h2 class="text-lg font-bold text-amber-900">Safety comes first, every trip</h2>
+      <ul class="mt-3 space-y-2 text-sm text-amber-900">
+        <li>Do all setup (pasting, voice selection, pressing play) before the car moves.</li>
+        <li>Never type, scroll, or select text while driving. If something needs changing, pull over.</li>
+        <li>Keep the volume low enough to hear sirens, horns, and your surroundings.</li>
+        <li>Handheld phone use behind the wheel is illegal in many places. Know your local law and follow it.</li>
+        <li>If the material demands real concentration, save it for later. Driving gets your full attention; the article gets what's left.</li>
+      </ul>
+    </section>
+
+    <section class="mt-12 rounded-2xl bg-slate-50 px-6 py-10 text-center">
+      <h2 class="text-2xl font-bold text-slate-900">Queue up your next drive</h2>
+      <p class="mx-auto mt-2 max-w-xl text-slate-600">
+        Free, no sign-up, works on any phone browser. Paste the article now so it's ready
+        when you are.
+      </p>
+      <a
+        href="/"
+        class="mt-6 inline-block rounded-full bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700"
+      >
+        Open the free TTS tool
+      </a>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Text to Speech for Studying — Listen to Notes, Articles & PDFs | TextToSpeech.Online';
+const description =
+  'Use free text to speech to study: hear your notes and readings out loud, slow the pace for hard material, and review while your eyes rest.';
+
+const canonical = new URL('/for-studying/', Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Text to Speech for Studying — Listen to Notes, Articles & PDFs',
+  description,
+  url: canonical,
+  author: {
+    '@type': 'Organization',
+    name: 'TextToSpeech.Online',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'TextToSpeech.Online',
+  },
+};
+---
+
+<Layout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+      TTS for Studying: Read with Your Ears
+    </h1>
+    <p class="mt-4 text-lg text-slate-600">
+      After a few hours of reading, your eyes give out before your brain does. Listening is
+      a way to keep going. Paste a chapter, a paper, or your own notes into a text to speech
+      tool and let it read while you follow along, or while you pace around the room.
+    </p>
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold text-slate-900">Why listening helps</h2>
+      <p class="mt-3 text-slate-600">
+        Hearing material engages a different channel than reading it. When you read and
+        listen at the same time, mistakes in your own writing jump out, dense passages slow
+        down to a pace you can actually process, and you catch things your eyes skimmed past.
+        Students with dyslexia or visual fatigue often find audio the difference between
+        finishing a reading list and giving up on it.
+      </p>
+      <p class="mt-3 text-slate-600">
+        It also frees your eyes. You can listen to yesterday's lecture notes while walking to
+        class or washing dishes. The material gets a second pass without costing you extra
+        desk time.
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold text-slate-900">What the tool does for study sessions</h2>
+      <ul class="mt-4 space-y-3 text-slate-600">
+        <li>
+          <strong>Speed control.</strong> Slow the voice down for a proof-heavy statistics
+          chapter, speed it up for a novel you only need the gist of. The slider goes well
+          below normal speaking pace, which matters more than you'd think for technical text.
+        </li>
+        <li>
+          <strong>Language switching.</strong> Studying French, Japanese, or Spanish? Switch
+          to a native voice for that language and hear the pronunciation instead of guessing
+          at it. Voices for dozens of languages come with your browser.
+        </li>
+        <li>
+          <strong>Nothing uploaded.</strong> Your thesis draft or exam notes stay on your
+          device. The speech is generated locally by your browser, so there is no server
+          seeing your material.
+        </li>
+        <li>
+          <strong>No caps for cramming.</strong> Exam week means long sessions. The free tool
+          has no daily character limit, so you can run it for hours.
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold text-slate-900">Three habits that make it work</h2>
+      <ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-600">
+        <li>
+          <strong>Slow down for difficult material.</strong> Drop the speed to 0.7 or 0.8 for
+          anything with formulas, definitions, or dense argument. Normal speed is for review;
+          slow speed is for first contact with hard stuff.
+        </li>
+        <li>
+          <strong>Repeat sections instead of pushing through.</strong> When a paragraph
+          doesn't land, select just that part and play it again. Two or three passes at one
+          hard paragraph beat one pass over the whole page.
+        </li>
+        <li>
+          <strong>Listen to your own notes.</strong> This one sounds odd but works. Paste in
+          the notes you took, then listen the next day. Gaps and half-finished thoughts are
+          embarrassing to hear, which is exactly why you'll notice and fix them.
+        </li>
+      </ol>
+    </section>
+
+    <section class="mt-12 rounded-2xl bg-slate-50 px-6 py-10 text-center">
+      <h2 class="text-2xl font-bold text-slate-900">Put your notes in</h2>
+      <p class="mx-auto mt-2 max-w-xl text-slate-600">
+        The tool is free, has no sign-up, and starts reading the moment you press play.
+      </p>
+      <a
+        href="/"
+        class="mt-6 inline-block rounded-full bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700"
+      >
+        Start listening to your notes
+      </a>
+    </section>
+  </main>
+  <Footer />
+</Layout>
