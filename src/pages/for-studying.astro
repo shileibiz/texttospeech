@@ -3,16 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'Text to Speech for Studying — Listen to Notes, Articles & PDFs | TextToSpeech.Online';
+const title = 'Text to Speech for Studying — Read Your Notes & Articles Aloud | TextToSpeech.Online';
 const description =
-  'Use free text to speech to study: hear your notes and readings out loud, slow the pace for hard material, and review while your eyes rest.';
+  'Use free text to speech for studying: listen to notes, textbooks, and PDFs out loud. Improve focus, reduce eye strain, and retain more with browser-based TTS. No sign-up, no limits.';
 
 const canonical = new URL('/for-studying/', Astro.site).href;
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Text to Speech for Studying — Listen to Notes, Articles & PDFs',
+  headline: 'Text to Speech for Studying — Read Your Notes & Articles Aloud',
   description,
   url: canonical,
   author: {
@@ -24,94 +24,400 @@ const jsonLd = {
     name: 'TextToSpeech.Online',
   },
 };
+
+const benefits = [
+  {
+    title: 'Reduce digital eye strain',
+    body: 'Staring at a screen for hours dries out your eyes and makes it harder to concentrate. Switching to audio gives your eyes a break while your brain keeps absorbing the material. Many students study in 25-minute reading blocks followed by 5-minute listening blocks to keep both channels fresh.',
+  },
+  {
+    title: 'Improve focus and retention',
+    body: 'Listening while reading along forces your brain to process the same information through two senses at once. This dual-coding effect has been shown to improve recall — especially for dense or unfamiliar material. Students who listen to their notes after writing them often catch gaps and errors they missed while typing.',
+  },
+  {
+    title: 'Help with dyslexia and reading difficulties',
+    body: 'Decoding written words takes extra cognitive effort for readers with dyslexia. Audio sidesteps that decoding step and delivers the information directly. When text is read aloud at a comfortable pace, comprehension often jumps because the brain is no longer splitting resources between sounding out words and understanding meaning.',
+  },
+  {
+    title: 'Support for ADHD and attention regulation',
+    body: 'A narrated voice can act as an external anchor for attention. Instead of letting your eyes drift across the page, the voice pulls you along at a steady pace. Paired with a moderate speed setting (0.8x–1.2x), many students with ADHD report staying engaged with audio for 2–3× longer than silent reading.',
+  },
+  {
+    title: 'Turn dead time into study time',
+    body: 'Commute, chores, exercise — these pockets of the day are usually wasted for reading. A TTS tool lets you review lecture recordings, skim articles, or drill vocabulary while your hands and eyes are busy elsewhere. Even 15 minutes of listening during a walk adds up to hours of extra review per week.',
+  },
+];
+
+const scenarios = [
+  {
+    icon: '📝',
+    heading: 'Review your own lecture notes',
+    desc: 'Paste your notes into the tool and listen the next day. Hearing your own writing read back makes gaps and half-formed ideas embarrassingly obvious — exactly the signal you need to fill them in.',
+  },
+  {
+    icon: '📄',
+    heading: 'Read PDFs and articles aloud',
+    desc: 'Copy-paste a research paper, a textbook excerpt, or a news article. Adjust the speed to match your comfort level — slow for technical sections, normal for review passages.',
+  },
+  {
+    icon: '🌍',
+    heading: 'Practice foreign language pronunciation',
+    desc: 'Switch the voice to a native speaker of the language you are studying. Hearing correct pronunciation while reading the text builds the connection between spelling and sound faster than reading alone.',
+  },
+  {
+    icon: '📋',
+    heading: 'Proofread essays and assignments',
+    desc: 'Your eyes skip over your own typos because your brain knows what you meant to write. A TTS voice reads exactly what is on the page — every missing word, doubled article, and awkward phrase becomes unmistakable.',
+  },
+  {
+    icon: '📚',
+    heading: 'Listen to summaries before exams',
+    desc: 'Create condensed study guides and listen to them repeatedly. The repetition-through-listening approach works especially well for terminology, dates, formulas, and anything you need to commit to memory.',
+  },
+];
 ---
 
 <Layout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
   <Header />
-  <main class="mx-auto max-w-3xl px-4 py-10">
-    <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-      TTS for Studying: Read with Your Ears
-    </h1>
-    <p class="mt-4 text-lg text-slate-600">
-      After a few hours of reading, your eyes give out before your brain does. Listening is
-      a way to keep going. Paste a chapter, a paper, or your own notes into a text to speech
-      tool and let it read while you follow along, or while you pace around the room.
-    </p>
-
-    <section class="mt-10">
-      <h2 class="text-2xl font-bold text-slate-900">Why listening helps</h2>
-      <p class="mt-3 text-slate-600">
-        Hearing material engages a different channel than reading it. When you read and
-        listen at the same time, mistakes in your own writing jump out, dense passages slow
-        down to a pace you can actually process, and you catch things your eyes skimmed past.
-        Students with dyslexia or visual fatigue often find audio the difference between
-        finishing a reading list and giving up on it.
-      </p>
-      <p class="mt-3 text-slate-600">
-        It also frees your eyes. You can listen to yesterday's lecture notes while walking to
-        class or washing dishes. The material gets a second pass without costing you extra
-        desk time.
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    <!-- Hero -->
+    <section class="text-center">
+      <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        Text to Speech for Studying — Read with Your Ears
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+        After hours of reading, your eyes give out before your brain does. Listening is
+        a way to keep going — and often a better way to learn in the first place. Paste a
+        chapter, your notes, or an article below and let the tool read it aloud.
       </p>
     </section>
 
-    <section class="mt-10">
-      <h2 class="text-2xl font-bold text-slate-900">What the tool does for study sessions</h2>
-      <ul class="mt-4 space-y-3 text-slate-600">
-        <li>
-          <strong>Speed control.</strong> Slow the voice down for a proof-heavy statistics
-          chapter, speed it up for a novel you only need the gist of. The slider goes well
-          below normal speaking pace, which matters more than you'd think for technical text.
-        </li>
-        <li>
-          <strong>Language switching.</strong> Studying French, Japanese, or Spanish? Switch
-          to a native voice for that language and hear the pronunciation instead of guessing
-          at it. Voices for dozens of languages come with your browser.
-        </li>
-        <li>
-          <strong>Nothing uploaded.</strong> Your thesis draft or exam notes stay on your
-          device. The speech is generated locally by your browser, so there is no server
-          seeing your material.
-        </li>
-        <li>
-          <strong>No caps for cramming.</strong> Exam week means long sessions. The free tool
-          has no daily character limit, so you can run it for hours.
-        </li>
-      </ul>
+    <!-- Embedded TTS Tool -->
+    <section class="mt-8">
+      <div
+        id="tts-tool"
+        class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+      >
+        <div class="flex flex-col gap-4">
+          <textarea
+            id="tts-input"
+            rows="6"
+            maxlength="5000"
+            placeholder="Paste your study notes, a textbook section, or an article here..."
+            class="w-full resize-y rounded-xl border border-slate-300 p-4 text-base focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+          ></textarea>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <label class="flex flex-col gap-1 text-sm text-slate-600">
+              Language / Voice
+              <select
+                id="tts-voice"
+                data-default-lang="en-US"
+                class="min-w-[220px] rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none"
+              >
+                <option>Loading voices...</option>
+              </select>
+            </label>
+
+            <label class="flex flex-col gap-1 text-sm text-slate-600">
+              Speed: <span id="tts-rate-value">1x</span>
+              <input
+                id="tts-rate"
+                type="range"
+                min="0.5"
+                max="2"
+                step="0.1"
+                value="1"
+                class="w-32"
+              />
+            </label>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <button
+              id="tts-speak"
+              type="button"
+              class="rounded-full bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700"
+            >
+              ▶ Speak
+            </button>
+            <button
+              id="tts-stop"
+              type="button"
+              class="rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-600 transition hover:bg-slate-100"
+            >
+              ■ Stop
+            </button>
+          </div>
+
+          <p id="tts-status" class="text-sm text-slate-400" aria-live="polite"></p>
+          <p class="text-xs text-slate-400">
+            Runs in your browser via the Web Speech API — your text stays on your device.
+            No sign-up, no limits, no watermark.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section class="mt-10">
-      <h2 class="text-2xl font-bold text-slate-900">Three habits that make it work</h2>
-      <ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-600">
-        <li>
-          <strong>Slow down for difficult material.</strong> Drop the speed to 0.7 or 0.8 for
-          anything with formulas, definitions, or dense argument. Normal speed is for review;
-          slow speed is for first contact with hard stuff.
-        </li>
-        <li>
-          <strong>Repeat sections instead of pushing through.</strong> When a paragraph
-          doesn't land, select just that part and play it again. Two or three passes at one
-          hard paragraph beat one pass over the whole page.
-        </li>
-        <li>
-          <strong>Listen to your own notes.</strong> This one sounds odd but works. Paste in
-          the notes you took, then listen the next day. Gaps and half-finished thoughts are
-          embarrassing to hear, which is exactly why you'll notice and fix them.
-        </li>
-      </ol>
+    <!-- Why TTS helps students -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">
+        Why Students Should Use Text to Speech
+      </h2>
+      <p class="mt-3 text-slate-600">
+        Reading is the default way to study, but it is not always the most effective.
+        Text to speech adds a second channel — audio — that changes how your brain
+        processes information. Here is why that matters.
+      </p>
+
+      <div class="mt-8 space-y-8">
+        {benefits.map((b) => (
+          <div class="rounded-xl border border-slate-100 bg-white p-6 shadow-sm">
+            <h3 class="text-lg font-bold text-slate-900">{b.title}</h3>
+            <p class="mt-2 leading-relaxed text-slate-600">{b.body}</p>
+          </div>
+        ))}
+      </div>
     </section>
 
-    <section class="mt-12 rounded-2xl bg-slate-50 px-6 py-10 text-center">
-      <h2 class="text-2xl font-bold text-slate-900">Put your notes in</h2>
+    <!-- Study scenarios -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">
+        Five Ways to Use TTS in Your Study Routine
+      </h2>
+      <p class="mt-3 text-slate-600">
+        A TTS tool is flexible enough to fit into almost any study habit. These five
+        scenarios cover the most common ways students use it every day.
+      </p>
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {scenarios.map((s) => (
+          <div class="rounded-xl border border-slate-200 p-5 transition hover:border-brand-200 hover:shadow-sm">
+            <div class="text-2xl">{s.icon}</div>
+            <h3 class="mt-3 font-semibold text-slate-900">{s.heading}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Speed & voice tips -->
+    <section class="mt-16 rounded-2xl bg-slate-50 px-6 py-10">
+      <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">
+        Getting the Settings Right for Studying
+      </h2>
+      <p class="mt-3 text-slate-600">
+        The default voice and speed work fine for casual use, but studying benefits from
+        a little experimentation.
+      </p>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        <div class="rounded-xl bg-white p-5 shadow-sm">
+          <h3 class="font-semibold text-slate-900">Speed for different tasks</h3>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600">
+            <li>
+              <strong class="text-slate-800">0.5× – 0.7×:</strong> First contact with
+              dense technical material, formulas, or unfamiliar vocabulary.
+            </li>
+            <li>
+              <strong class="text-slate-800">0.8× – 1.0×:</strong> Reading along with a
+              textbook or reviewing lecture notes.
+            </li>
+            <li>
+              <strong class="text-slate-800">1.2× – 1.5×:</strong> Passive review of
+              familiar material while walking or doing chores.
+            </li>
+            <li>
+              <strong class="text-slate-800">1.5× – 2.0×:</strong> Skimming light
+              articles or checking vocabulary lists you already know.
+            </li>
+          </ul>
+        </div>
+        <div class="rounded-xl bg-white p-5 shadow-sm">
+          <h3 class="font-semibold text-slate-900">Voice selection tips</h3>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600">
+            <li>
+              For <strong>proofreading</strong>, pick a voice with clear enunciation —
+              slightly robotic voices actually work better here because every syllable
+              is pronounced.
+            </li>
+            <li>
+              For <strong>language learning</strong>, use a native voice for the
+              language you are studying. Hearing correct intonation matters more than
+              voice naturalness.
+            </li>
+            <li>
+              For <strong>long listening sessions</strong>, choose a voice whose pace
+              and tone you find least distracting. Comfort matters when you are
+              listening for 30+ minutes.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison: TTS for study vs other tools -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">
+        How Browser TTS Compares to Study-Specific Apps
+      </h2>
+      <div class="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-4 py-3 font-semibold text-slate-700">Feature</th>
+              <th class="px-4 py-3 font-semibold text-brand-700">This tool</th>
+              <th class="px-4 py-3 font-semibold text-slate-700">Speechify</th>
+              <th class="px-4 py-3 font-semibold text-slate-700">NaturalReader</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="px-4 py-3 font-medium text-slate-800">Cost</td>
+              <td class="px-4 py-3 text-brand-700">Free, unlimited</td>
+              <td class="px-4 py-3 text-slate-600">Free tier (~15 min/day) + $11.58/mo</td>
+              <td class="px-4 py-3 text-slate-600">Free tier (limited) + $9.99/mo</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-slate-800">Sign-up required</td>
+              <td class="px-4 py-3 text-brand-700">None</td>
+              <td class="px-4 py-3 text-slate-600">Required</td>
+              <td class="px-4 py-3 text-slate-600">Required</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-slate-800">Privacy</td>
+              <td class="px-4 py-3 text-brand-700">Your text stays on device</td>
+              <td class="px-4 py-3 text-slate-600">Processed on their servers</td>
+              <td class="px-4 py-3 text-slate-600">Processed on their servers</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-slate-800">Works offline</td>
+              <td class="px-4 py-3 text-brand-700">Yes</td>
+              <td class="px-4 py-3 text-slate-600">No</td>
+              <td class="px-4 py-3 text-slate-600">No</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-slate-800">Speed control</td>
+              <td class="px-4 py-3 text-brand-700">0.5× – 2×</td>
+              <td class="px-4 py-3 text-slate-600">0.5× – 4.5×</td>
+              <td class="px-4 py-3 text-slate-600">0.5× – 4×</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-slate-800">Character limit</td>
+              <td class="px-4 py-3 text-brand-700">5,000 per session, no daily cap</td>
+              <td class="px-4 py-3 text-slate-600">Soft cap on free tier</td>
+              <td class="px-4 py-3 text-slate-600">Limited on free tier</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-sm text-slate-500">
+        For the majority of study needs — lecture review, proofreading, language practice,
+        and passive listening — browser TTS covers everything the paid apps offer, without
+        the account or the subscription.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="mt-16 rounded-2xl bg-brand-50 px-6 py-10 text-center">
+      <h2 class="text-2xl font-bold text-slate-900">
+        Start Studying with Text to Speech
+      </h2>
       <p class="mx-auto mt-2 max-w-xl text-slate-600">
-        The tool is free, has no sign-up, and starts reading the moment you press play.
+        The full tool on the homepage includes more voices, pitch control, and
+        language switching — all free, no sign-up required.
       </p>
       <a
         href="/"
-        class="mt-6 inline-block rounded-full bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700"
+        class="mt-6 inline-block rounded-full bg-brand-600 px-8 py-3 font-semibold text-white transition hover:bg-brand-700"
       >
-        Start listening to your notes
+        Open the free TTS tool →
       </a>
     </section>
   </main>
+
+  <!-- Inline TTS script -->
+  <script>
+    const input = document.getElementById('tts-input') as HTMLTextAreaElement;
+    const voiceSelect = document.getElementById('tts-voice') as HTMLSelectElement;
+    const rateInput = document.getElementById('tts-rate') as HTMLInputElement;
+    const rateValue = document.getElementById('tts-rate-value') as HTMLElement;
+    const speakBtn = document.getElementById('tts-speak') as HTMLButtonElement;
+    const stopBtn = document.getElementById('tts-stop') as HTMLButtonElement;
+    const status = document.getElementById('tts-status') as HTMLElement;
+
+    const defaultLang = voiceSelect?.dataset.defaultLang || 'en-US';
+    let voices: SpeechSynthesisVoice[] = [];
+
+    function populateVoices() {
+      if (!('speechSynthesis' in window)) {
+        status.textContent = 'Your browser does not support the Web Speech API. Try Chrome, Edge, or Safari.';
+        speakBtn.disabled = true;
+        return;
+      }
+      voices = window.speechSynthesis.getVoices();
+      if (!voices.length) return;
+
+      voiceSelect.innerHTML = '';
+      voices
+        .slice()
+        .sort((a, b) => a.lang.localeCompare(b.lang))
+        .forEach((voice, i) => {
+          const option = document.createElement('option');
+          option.value = String(i);
+          option.textContent = `${voice.name} (${voice.lang})`;
+          voiceSelect.appendChild(option);
+        });
+
+      const preferredIndex = voices.findIndex((v) => v.lang === defaultLang);
+      if (preferredIndex >= 0) {
+        voiceSelect.value = String(preferredIndex);
+      } else {
+        const looseMatch = voices.findIndex((v) => v.lang.startsWith(defaultLang.split('-')[0]));
+        if (looseMatch >= 0) voiceSelect.value = String(looseMatch);
+      }
+    }
+
+    populateVoices();
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = populateVoices;
+    }
+
+    rateInput?.addEventListener('input', () => {
+      rateValue.textContent = `${rateInput.value}x`;
+    });
+
+    speakBtn?.addEventListener('click', () => {
+      const text = input.value.trim();
+      if (!text) {
+        status.textContent = 'Paste your study material first.';
+        return;
+      }
+      if (!('speechSynthesis' in window)) return;
+
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      const selectedVoice = voices[Number(voiceSelect.value)];
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+        utterance.lang = selectedVoice.lang;
+      }
+      utterance.rate = Number(rateInput.value);
+
+      utterance.onstart = () => { status.textContent = 'Speaking...'; };
+      utterance.onend = () => { status.textContent = 'Done.'; };
+      utterance.onerror = () => { status.textContent = 'Something went wrong while speaking.'; };
+
+      window.speechSynthesis.speak(utterance);
+    });
+
+    stopBtn?.addEventListener('click', () => {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        status.textContent = 'Stopped.';
+      }
+    });
+  </script>
+
   <Footer />
 </Layout>
