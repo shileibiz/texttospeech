@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text to Speech Without AI — Free, Private, Browser-Based</title>
+    <meta
+      name="description"
+      content="A text to speech tool with zero AI and zero server. Speech is generated 100% browser-native on your own device — your text never leaves it, and it keeps working offline."
+    />
+    <link rel="canonical" href="https://texttospeech.online/no-ai/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TextToSpeech.Online" />
+    <meta property="og:title" content="Text to Speech Without AI — Free, Private, Browser-Based" />
+    <meta
+      property="og:description"
+      content="A text to speech tool with zero AI and zero server. Speech is generated 100% browser-native on your own device — your text never leaves it, and it keeps working offline."
+    />
+    <meta property="og:url" content="https://texttospeech.online/no-ai/" />
+    <meta property="og:image" content="https://texttospeech.online/og-default.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Text to Speech Without AI — Free, Private, Browser-Based" />
+    <meta
+      name="twitter:description"
+      content="A text to speech tool with zero AI and zero server. Speech is generated 100% browser-native on your own device — your text never leaves it, and it keeps working offline."
+    />
+    <meta name="twitter:image" content="https://texttospeech.online/og-default.svg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Text to Speech Without AI — TextToSpeech.Online",
+        "url": "https://texttospeech.online/no-ai/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any (Web Browser)",
+        "description": "A text to speech tool with zero AI and zero server. Speech is generated 100% browser-native on your own device — your text never leaves it, and it keeps working offline.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      /* Tailwind-like reset + utilities, brand: cyan (#0891b2) */
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e2e8f0;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+        font-family:
+          ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.5;
+      }
+      body {
+        margin: 0;
+      }
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      table {
+        border-collapse: collapse;
+        text-indent: 0;
+        border-color: inherit;
+      }
+      summary {
+        display: list-item;
+      }
+
+      /* Layout */
+      .min-h-screen { min-height: 100vh; }
+      .mx-auto { margin-left: auto; margin-right: auto; }
+      .max-w-5xl { max-width: 64rem; }
+      .max-w-2xl { max-width: 42rem; }
+      .max-w-xl { max-width: 36rem; }
+      .w-full { width: 100%; }
+      .h-6 { height: 1.5rem; }
+      .w-6 { width: 1.5rem; }
+      .flex { display: flex; }
+      .hidden { display: none; }
+      .inline-block { display: inline-block; }
+      .flex-col { flex-direction: column; }
+      .flex-wrap { flex-wrap: wrap; }
+      .items-center { align-items: center; }
+      .justify-between { justify-content: space-between; }
+      .gap-2 { gap: 0.5rem; }
+      .gap-4 { gap: 1rem; }
+      .gap-6 { gap: 1.5rem; }
+      .space-y-4 > * + * { margin-top: 1rem; }
+      .divide-y > * + * { border-top-width: 1px; }
+      .sticky { position: sticky; }
+      .top-0 { top: 0; }
+      .z-20 { z-index: 20; }
+      .overflow-x-auto { overflow-x: auto; }
+      .whitespace-nowrap { white-space: nowrap; }
+
+      /* Spacing */
+      .px-4 { padding-left: 1rem; padding-right: 1rem; }
+      .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+      .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+      .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+      .py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+      .p-4 { padding: 1rem; }
+      .mt-2 { margin-top: 0.5rem; }
+      .mt-3 { margin-top: 0.75rem; }
+      .mt-4 { margin-top: 1rem; }
+      .mt-6 { margin-top: 1.5rem; }
+      .mt-12 { margin-top: 3rem; }
+      .mt-16 { margin-top: 4rem; }
+
+      /* Typography */
+      .text-center { text-align: center; }
+      .text-left { text-align: left; }
+      .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+      .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+      .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+      .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+      .font-medium { font-weight: 500; }
+      .font-semibold { font-weight: 600; }
+      .font-bold { font-weight: 700; }
+      .font-extrabold { font-weight: 800; }
+      .leading-relaxed { line-height: 1.625; }
+      .antialiased {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Colors */
+      .bg-white { background-color: #ffffff; }
+      .bg-slate-50 { background-color: #f8fafc; }
+      .bg-brand-600 { background-color: #0891b2; }
+      .text-white { color: #ffffff; }
+      .text-slate-500 { color: #64748b; }
+      .text-slate-600 { color: #475569; }
+      .text-slate-700 { color: #334155; }
+      .text-slate-800 { color: #1e293b; }
+      .text-slate-900 { color: #0f172a; }
+      .text-brand-700 { color: #0e7490; }
+      .text-brand-900 { color: #164e63; }
+
+      /* Borders */
+      .border { border-width: 1px; }
+      .border-b { border-bottom-width: 1px; }
+      .border-t { border-top-width: 1px; }
+      .border-slate-100 { border-color: #f1f5f9; }
+      .border-slate-200 { border-color: #e2e8f0; }
+      .divide-slate-100 > * + * { border-color: #f1f5f9; }
+      .rounded { border-radius: 0.25rem; }
+      .rounded-full { border-radius: 9999px; }
+      .rounded-xl { border-radius: 0.75rem; }
+      .rounded-2xl { border-radius: 1rem; }
+
+      /* Interactive */
+      .cursor-pointer { cursor: pointer; }
+      .transition {
+        transition-property: color, background-color, border-color;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .hover\:text-brand-600:hover { color: #0891b2; }
+      .hover\:bg-brand-700:hover { background-color: #0e7490; }
+
+      /* Responsive */
+      @media (min-width: 640px) {
+        .sm\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+      }
+      @media (min-width: 768px) {
+        .md\:flex { display: flex; }
+        .md\:hidden { display: none; }
+        .md\:flex-row { flex-direction: row; }
+        .md\:items-center { align-items: center; }
+        .md\:justify-between { justify-content: space-between; }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white text-slate-800 antialiased">
+    <header class="border-b border-slate-200 bg-white sticky top-0 z-20">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-brand-700">
+          <span class="inline-block h-6 w-6 rounded bg-brand-600"></span>
+          TextToSpeech.Online
+        </a>
+        <nav class="hidden gap-6 text-sm font-medium text-slate-600 md:flex">
+          <a href="/" class="hover:text-brand-600">TTS Tool</a>
+          <a href="/languages/text-to-speech-spanish/" class="hover:text-brand-600">Spanish</a>
+          <a href="/languages/text-to-speech-chinese/" class="hover:text-brand-600">Chinese</a>
+          <a href="/languages/text-to-speech-japanese/" class="hover:text-brand-600">Japanese</a>
+          <a href="/alternatives/" class="hover:text-brand-600">Compare</a>
+          <a href="/faq/" class="hover:text-brand-600">FAQ</a>
+        </nav>
+        <a
+          href="#premium"
+          class="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+        >
+          Go Premium
+        </a>
+      </div>
+      <nav
+        class="flex gap-4 overflow-x-auto border-t border-slate-100 px-4 py-2 text-sm font-medium text-slate-600 md:hidden"
+      >
+        <a href="/" class="whitespace-nowrap hover:text-brand-600">TTS Tool</a>
+        <a href="/languages/text-to-speech-spanish/" class="whitespace-nowrap hover:text-brand-600">Spanish</a>
+        <a href="/languages/text-to-speech-chinese/" class="whitespace-nowrap hover:text-brand-600">Chinese</a>
+        <a href="/languages/text-to-speech-japanese/" class="whitespace-nowrap hover:text-brand-600">Japanese</a>
+        <a href="/alternatives/" class="whitespace-nowrap hover:text-brand-600">Compare</a>
+        <a href="/faq/" class="whitespace-nowrap hover:text-brand-600">FAQ</a>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <section class="text-center">
+        <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+          Text to Speech Without AI — It's Just Your Browser
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+          Every TTS site right now is racing to add AI voices. This tool goes the other way.
+          It uses the speech engine already built into your browser, so your text stays on
+          your device and there is no AI model, server, or account anywhere in the chain.
+        </p>
+      </section>
+
+      <section class="mt-12">
+        <h2 class="text-2xl font-bold text-slate-900">How it works (the short version)</h2>
+        <p class="mt-3 text-slate-600">
+          Your browser ships with the Web Speech API, a standard that has been around since
+          2013. When you press play, the browser hands your text to the voice engine in your
+          operating system, which turns it into audio on the spot. No request goes out. You
+          can check the network tab yourself: nothing is sent when speech plays.
+        </p>
+        <p class="mt-3 text-slate-600">
+          That also means your text cannot end up in anyone's training data. There is nothing
+          to train on because we never receive it.
+        </p>
+      </section>
+
+      <section class="mt-12">
+        <h2 class="text-2xl font-bold text-slate-900">Browser TTS vs the AI services</h2>
+        <p class="mt-2 text-slate-600">
+          The AI services are good at what they do. The question is whether you need what they do.
+        </p>
+        <div class="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50">
+              <tr>
+                <th class="px-4 py-3 font-semibold text-slate-700">Feature</th>
+                <th class="px-4 py-3 font-semibold text-brand-700">This tool</th>
+                <th class="px-4 py-3 font-semibold text-slate-700">ElevenLabs</th>
+                <th class="px-4 py-3 font-semibold text-slate-700">Google Cloud TTS</th>
+                <th class="px-4 py-3 font-semibold text-slate-700">Amazon Polly</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr>
+                <td class="px-4 py-3 font-medium text-slate-800">Where speech is generated</td>
+                <td class="px-4 py-3 text-brand-700">On your device, by the browser</td>
+                <td class="px-4 py-3 text-slate-600">ElevenLabs servers</td>
+                <td class="px-4 py-3 text-slate-600">Google servers</td>
+                <td class="px-4 py-3 text-slate-600">AWS servers</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-slate-800">Your text sent to a server</td>
+                <td class="px-4 py-3 text-brand-700">No</td>
+                <td class="px-4 py-3 text-slate-600">Yes</td>
+                <td class="px-4 py-3 text-slate-600">Yes</td>
+                <td class="px-4 py-3 text-slate-600">Yes</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-slate-800">Neural / AI model involved</td>
+                <td class="px-4 py-3 text-brand-700">No — OS voice engine</td>
+                <td class="px-4 py-3 text-slate-600">Yes (proprietary AI voices)</td>
+                <td class="px-4 py-3 text-slate-600">Yes (WaveNet, Neural2)</td>
+                <td class="px-4 py-3 text-slate-600">Yes (Neural, Generative)</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-slate-800">What happens to your text</td>
+                <td class="px-4 py-3 text-brand-700">Nothing. It never leaves the page.</td>
+                <td class="px-4 py-3 text-slate-600">Processed under ElevenLabs terms</td>
+                <td class="px-4 py-3 text-slate-600">Processed under Google Cloud terms</td>
+                <td class="px-4 py-3 text-slate-600">Processed under AWS terms</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-slate-800">Account required</td>
+                <td class="px-4 py-3 text-brand-700">No</td>
+                <td class="px-4 py-3 text-slate-600">Yes</td>
+                <td class="px-4 py-3 text-slate-600">Yes</td>
+                <td class="px-4 py-3 text-slate-600">Yes</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-slate-800">Cost</td>
+                <td class="px-4 py-3 text-brand-700">Free, no character caps</td>
+                <td class="px-4 py-3 text-slate-600">Subscription after small free tier</td>
+                <td class="px-4 py-3 text-slate-600">Pay per character after free tier</td>
+                <td class="px-4 py-3 text-slate-600">Pay per character after free tier</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-slate-800">Works offline</td>
+                <td class="px-4 py-3 text-brand-700">Yes, after first load</td>
+                <td class="px-4 py-3 text-slate-600">No</td>
+                <td class="px-4 py-3 text-slate-600">No</td>
+                <td class="px-4 py-3 text-slate-600">No</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-12">
+        <h2 class="text-2xl font-bold text-slate-900">No-AI text to speech FAQ</h2>
+        <div class="mt-6 space-y-4">
+          <details class="rounded-xl border border-slate-200 p-4">
+            <summary class="cursor-pointer font-medium text-slate-800">
+              Why would anyone want text to speech without AI?
+            </summary>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              A few reasons come up again and again. Some people paste private text
+              (contracts, medical notes, unpublished drafts) and do not want it processed on
+              someone else's server. Some writers worry about their text being kept under
+              cloud terms they never read. Others just want something that loads fast, works
+              offline, and does not ask for an account. Browser TTS covers all of that
+              because the audio is made on your device.
+            </p>
+          </details>
+          <details class="rounded-xl border border-slate-200 p-4">
+            <summary class="cursor-pointer font-medium text-slate-800">
+              Is the voice quality good enough?
+            </summary>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              Honest answer: system voices sound more synthetic than the best AI voices. You
+              will notice it. But for proofreading your own writing, listening to an article
+              while you cook, or hearing a language pronounced correctly, they do the job
+              fine. If you need a voiceover for a published video, an AI voice is probably
+              worth it. For everyday listening, most people stop noticing after a minute.
+            </p>
+          </details>
+          <details class="rounded-xl border border-slate-200 p-4">
+            <summary class="cursor-pointer font-medium text-slate-800">
+              How does this compare with free AI TTS tools?
+            </summary>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              Free tiers of AI TTS usually mean sign-up, a monthly character cap, and your
+              text going to a server. Browser TTS has no cap and no upload because there is
+              no server doing the work. The trade is voice quality for privacy and unlimited
+              use. Pick based on which one you actually need.
+            </p>
+          </details>
+          <details class="rounded-xl border border-slate-200 p-4">
+            <summary class="cursor-pointer font-medium text-slate-800">
+              Does it really work offline?
+            </summary>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              Yes. Once the page has loaded, speech generation happens entirely in your
+              browser through the Web Speech API, so you can turn off Wi-Fi and keep
+              listening. The voices themselves come from your operating system, not from us.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="mt-16 rounded-2xl bg-slate-50 px-6 py-10 text-center">
+        <h2 class="text-2xl font-bold text-slate-900">Try it now</h2>
+        <p class="mx-auto mt-2 max-w-xl text-slate-600">
+          Paste your text, pick a voice, press play. Nothing gets uploaded and nothing gets counted.
+        </p>
+        <a
+          href="/"
+          class="mt-6 inline-block rounded-full bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700"
+        >
+          Open the free TTS tool
+        </a>
+      </section>
+    </main>
+
+    <footer class="mt-16 border-t border-slate-200 bg-slate-50">
+      <div class="mx-auto max-w-5xl px-4 py-10 text-sm text-slate-500">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p>&copy; 2026 TextToSpeech.Online — free browser-based text to speech.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/faq/" class="hover:text-brand-600">FAQ</a>
+            <a href="/alternatives/" class="hover:text-brand-600">Alternatives</a>
+            <a href="/no-ai/" class="hover:text-brand-600">TTS without AI</a>
+            <a href="/for-studying/" class="hover:text-brand-600">For studying</a>
+            <a href="/while-driving/" class="hover:text-brand-600">While driving</a>
+            <a href="#premium" class="hover:text-brand-600">Premium</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
