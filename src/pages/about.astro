@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'About — TextToSpeech.Online';
+const description = 'About TextToSpeech.Online — free, private, browser-based text to speech.';
+const canonical = new URL('/about/', Astro.site).href;
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <header class="border-b border-slate-200 bg-white sticky top-0 z-20">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+      <a href="/" class="flex items-center gap-2 text-lg font-bold text-brand-700">
+        <span class="inline-block h-6 w-6 rounded bg-brand-600"></span>
+        TextToSpeech.Online
+      </a>
+      <a
+        href="/"
+        class="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+      >
+        ← Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-slate max-w-none">
+      <h1>About TextToSpeech.Online</h1>
+
+      <h2>Our Mission</h2>
+      <p>TextToSpeech.Online makes text-to-speech accessible to everyone. Whether you're a student, professional, accessibility user, or language learner, we believe listening to text should be free, private, and work right in your browser without installing anything.</p>
+
+      <h2>Why We Built This</h2>
+      <p>Existing TTS tools either require sign-up, limit usage with daily quotas, add watermarks, or upload your text to cloud servers. We wanted a tool that:</p>
+      <ul>
+        <li>Processes everything locally — your text never leaves your computer</li>
+        <li>Has no daily limits or usage caps for the core experience</li>
+        <li>Supports multiple languages and natural-sounding voices</li>
+        <li>Works offline once the page loads (the Web Speech API is built into your browser)</li>
+      </ul>
+
+      <h2>Our Values</h2>
+      <ul>
+        <li><strong>Privacy first.</strong> Your text and audio stay on your device.</li>
+        <li><strong>Accessibility.</strong> We support a wide range of languages and voices.</li>
+        <li><strong>Simplicity.</strong> Type, pick a voice, play. No learning curve.</li>
+        <li><strong>Free core.</strong> Basic text-to-speech is free forever.</li>
+      </ul>
+
+      <h2>Who We Are</h2>
+      <p>We are a small team building useful web tools that respect user privacy. We create pure front-end applications — no servers, no databases, no user tracking.</p>
+    </article>
+  </main>
+</Layout>

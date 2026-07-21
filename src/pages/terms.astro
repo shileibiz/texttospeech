@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Terms of Service — TextToSpeech.Online';
+const description = 'Terms of Service for TextToSpeech.Online — free online text to speech.';
+const canonical = new URL('/terms/', Astro.site).href;
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <header class="border-b border-slate-200 bg-white sticky top-0 z-20">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+      <a href="/" class="flex items-center gap-2 text-lg font-bold text-brand-700">
+        <span class="inline-block h-6 w-6 rounded bg-brand-600"></span>
+        TextToSpeech.Online
+      </a>
+      <a
+        href="/"
+        class="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+      >
+        ← Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-slate max-w-none">
+      <h1>Terms of Service</h1>
+      <p class="text-sm text-slate-500"><strong>Last updated:</strong> July 22, 2026</p>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing or using TextToSpeech.Online ("the Service"), you agree to be bound by these Terms of Service.</p>
+
+      <h2>2. Service Description</h2>
+      <p>TextToSpeech.Online is a free, browser-based text-to-speech tool. All conversion is performed locally using your device's Web Speech API. Core features (listen in browser) are free and unlimited. Premium features (MP3 download with AI voices) are available as a paid upgrade.</p>
+
+      <h2>3. Disclaimer of Warranties</h2>
+      <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. WE DO NOT GUARANTEE THAT THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE. VOICE QUALITY DEPENDS ON YOUR BROWSER AND OPERATING SYSTEM.</p>
+
+      <h2>4. Limitation of Liability</h2>
+      <p>IN NO EVENT SHALL TEXTTOSPEECH.ONLINE, ITS OPERATORS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THE SERVICE.</p>
+
+      <h2>5. User Responsibilities</h2>
+      <p>You agree to use the Service responsibly and in accordance with all applicable laws. You must not use the Service to generate audio for illegal, harassing, or fraudulent purposes.</p>
+
+      <h2>6. Intellectual Property</h2>
+      <p>The TextToSpeech.Online name, logo, and website content are our property. Generated audio is yours to use as you wish.</p>
+
+      <h2>7. Premium Services</h2>
+      <p>Premium features are paid services. Refund requests are handled on a case-by-case basis. We reserve the right to modify pricing and feature availability with notice.</p>
+
+      <h2>8. Changes</h2>
+      <p>We may modify these terms at any time. Changes will be posted on this page.</p>
+
+      <h2>9. Contact</h2>
+      <p>Questions: <a href="mailto:legal@texttospeech.online">legal@texttospeech.online</a></p>
+    </article>
+  </main>
+</Layout>

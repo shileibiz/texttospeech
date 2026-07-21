@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Privacy Policy — TextToSpeech.Online';
+const description = 'Privacy Policy for TextToSpeech.Online. Your text stays in your browser — we collect nothing.';
+const canonical = new URL('/privacy/', Astro.site).href;
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <header class="border-b border-slate-200 bg-white sticky top-0 z-20">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+      <a href="/" class="flex items-center gap-2 text-lg font-bold text-brand-700">
+        <span class="inline-block h-6 w-6 rounded bg-brand-600"></span>
+        TextToSpeech.Online
+      </a>
+      <a
+        href="/"
+        class="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+      >
+        ← Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-slate max-w-none">
+      <h1>Privacy Policy</h1>
+      <p class="text-sm text-slate-500"><strong>Last updated:</strong> July 22, 2026</p>
+
+      <h2>1. Introduction</h2>
+      <p>TextToSpeech.Online ("we", "our", or "us") operates the website texttospeech.online (the "Service"). This Privacy Policy explains how we handle your information when you use our free online text-to-speech tool.</p>
+
+      <h2>2. No Data Collection</h2>
+      <p><strong>TextToSpeech.Online is a 100% client-side application.</strong> All text-to-speech conversion happens in your browser using the Web Speech API. We do not:</p>
+      <ul>
+        <li>Collect, store, or transmit any text you enter</li>
+        <li>Use cookies for tracking or analytics</li>
+        <li>Upload your audio or text to any server</li>
+        <li>Require registration, login, or email address</li>
+        <li>Track your usage across sessions</li>
+      </ul>
+
+      <h2>3. Local Storage</h2>
+      <p>The tool may use your browser's localStorage to remember your language and voice preferences between visits. This data stays on your device and is never sent to our servers.</p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>This website is hosted on <strong>Cloudflare Pages</strong>. Cloudflare may process minimal, anonymized request data (IP address, browser type, timestamp) for the sole purpose of delivering the website. We do not use Google Analytics or any other third-party analytics services.</p>
+
+      <h2>5. Cookies</h2>
+      <p>This website does not set any non-essential cookies. Cloudflare Pages may set strictly functional cookies required for CDN operation.</p>
+
+      <h2>6. Children's Privacy</h2>
+      <p>Our Service does not address anyone under the age of 13. We do not knowingly collect personal information from children.</p>
+
+      <h2>7. Changes</h2>
+      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date.</p>
+
+      <h2>8. Contact</h2>
+      <p>Questions? Contact us at: <a href="mailto:privacy@texttospeech.online">privacy@texttospeech.online</a></p>
+    </article>
+  </main>
+</Layout>
